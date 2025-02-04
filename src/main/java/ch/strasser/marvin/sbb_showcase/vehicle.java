@@ -1,0 +1,118 @@
+package ch.strasser.marvin.sbb_showcase;/*
+Marvin Strasser
+Project_Name
+Version 1.0
+DATE
+*/
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "vehicles")
+public class vehicle {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "vehicle_type", nullable = false)
+    private String vehicleType;
+
+    @Column(name = "vehicle_number")
+    private String vehicleNumber;
+
+    @Column(name = "passenger_seats")
+    private int passengerSeats;
+
+    @Column(name = "max_allowed_speed")
+    private int maxAllowedSpeed;
+
+    @Column(name = "type")
+    private String type;
+
+    @Column(name = "image_url")
+    private String imageUrl;
+
+    // Standard-Konstruktor für JPA
+    public vehicle() {}
+
+    // Konstruktor mit Parametern
+    public vehicle(String vehicleType, String vehicleNumber, int passengerSeats, int maxAllowedSpeed, String type, String imageUrl) {
+        this.vehicleType = vehicleType;
+        this.vehicleNumber = vehicleNumber;
+        this.passengerSeats = passengerSeats;
+        this.maxAllowedSpeed = maxAllowedSpeed;
+        this.type = type;
+        this.imageUrl = imageUrl;
+    }
+
+    // Getter und Setter
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getVehicleType() {
+        return vehicleType;
+    }
+
+    public void setVehicleType(String vehicleType) {
+        this.vehicleType = vehicleType;
+    }
+
+    public String getVehicleNumber() {
+        return vehicleNumber;
+    }
+
+    public void setVehicleNumber(String vehicleNumber) {
+        this.vehicleNumber = vehicleNumber;
+    }
+
+    public int getPassengerSeats() {
+        return passengerSeats;
+    }
+
+    public void setPassengerSeats(int passengerSeats) {
+        this.passengerSeats = passengerSeats;
+    }
+
+    public int getMaxAllowedSpeed() {
+        return maxAllowedSpeed;
+    }
+
+    public void setMaxAllowedSpeed(int maxAllowedSpeed) {
+        this.maxAllowedSpeed = maxAllowedSpeed;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "id=" + id +
+                ", vehicleType='" + vehicleType + '\'' +
+                ", vehicleNumber='" + vehicleNumber + '\'' +
+                ", passengerSeats=" + passengerSeats +
+                ", maxAllowedSpeed=" + maxAllowedSpeed +
+                ", type='" + type + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                '}';
+    }
+}
+
