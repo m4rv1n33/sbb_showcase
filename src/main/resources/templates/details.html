@@ -7,24 +7,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="container mt-4">
-<h1 class="mb-4">Fahrzeugdetails für <span th:text="${type}"></span></h1>
+<h1 class="mb-4">Fahrzeugdetails <span th:text="${type}"></span></h1>
 
 <a href="/" class="btn btn-secondary mb-3">Zurück</a>
 
-<table class="table table-bordered">
-    <thead>
-    <tr>
-        <th>Sitzplätze</th>
-        <th>Maximale Geschwindigkeit</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="vehicle : ${vehicles}">
-        <td th:text="${vehicle.passengerSeats}"></td>
-        <td th:text="${vehicle.maxAllowedSpeed} + ' km/h'"></td>
-    </tr>
-    </tbody>
-</table>
+<div class="card">
+    <img th:src="${imageUrl}" class="card-img-top" alt="Fahrzeugbild">
+    <div class="card-body">
+        <h5 class="card-title" th:text="${type}"></h5>
+        <p class="card-text"><strong>Anzahl Fahrzeuge:</strong> <span th:text="${count}"></span></p>
+        <p class="card-text"><strong>Sitzplätze:</strong> <span th:text="${passengerSeats}"></span></p>
+        <p class="card-text"><strong>Maximale Geschwindigkeit:</strong> <span th:text="${maxAllowedSpeed} + ' km/h'"></span></p>
+    </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
