@@ -43,12 +43,14 @@ SET image_url = CASE
     WHEN vehicle_type LIKE 'RABe 520' THEN '/images/RABe520.jpg'
     WHEN vehicle_type LIKE 'RABe 521%' THEN '/images/RABe521.jpg'
     WHEN vehicle_type LIKE 'RABe 522%' THEN '/images/RABe522.jpg'
-    WHEN vehicle_type LIKE 'RABe 523%' THEN '/images/RABe523.jpg'
+    WHEN vehicle_type LIKE 'RABe 523%' THEN '/images/RABe523-1.jpg'
     WHEN vehicle_type LIKE 'RABe 524 TILO 4' THEN '/images/RABe524-4.jpg'
     WHEN vehicle_type LIKE 'RABe 524 TILO 6' THEN '/images/RABe524-6.jpg'
     WHEN vehicle_type LIKE 'Re 420' THEN '/images/Re420.jpg'
     WHEN vehicle_type LIKE 'Re 450' THEN '/images/Re450.jpg'
     WHEN vehicle_type LIKE 'Re 460' THEN '/images/Re460.jpg'
+    WHEN vehicle_type LIKE 'bpm ec ric' THEN '/images/ec_bpm_ric.jpg'
+  --  WHEN vehicle_type LIKE
     ELSE image_url
 END;
 
@@ -93,7 +95,7 @@ SET vehicle_type = 'RABDe 500 - "ICN"' WHERE vehicle_type LIKE 'RABDe 500 ICN';
 UPDATE vehicles
 SET vehicle_type = 'Re 450 - "DPZ"' WHERE vehicle_type LIKE 'RE 450';
 UPDATE vehicles
-SET vehicle_type = 'Re 420 - "Re 4/4 II"' WHERE vehicle_type LIKE 'Re 420';
+SET vehicle_type = 'Re 420 - "Re 4/4 II" - HVZ-D' WHERE vehicle_type LIKE 'Re 420';
 UPDATE vehicles
 SET vehicle_type = 'SBB EC BPM - "Reisezugwagen 2. Klasse"' WHERE vehicle_type LIKE 'Bpm EC RIC';
 UPDATE vehicles
@@ -124,5 +126,13 @@ UPDATE vehicles
 SET vehicle_type = 'A EW IV - "EW IV 1. Klasse"' WHERE vehicle_type LIKE 'A EWIV';
 UPDATE vehicles
 SET vehicle_type = 'Re 460 - "Lok 2000"' WHERE vehicle_type LIKE 'Re 460';
+update vehicles
+SET passenger_seats = '387' WHERE vehicle_type = 'Re 450 - "DPZ"';
+UPDATE vehicles 
+SET passenger_seats = '556' WHERE vehicle_type = 'Re 420 - "Re 4/4 II" - HVZ-D';
 DELETE FROM vehicles WHERE vehicle_type = 'B EWI NPZ';
+DELETE FROM vehicles WHERE vehicle_type = 'B DPZ NDW - "DPZ 2. Klasse"';
+DELETE FROM vehicles WHERE vehicle_type = 'AB DPZplus - "DPZ gemischt 1/2. Klasse"';
+DELETE FROM vehicles WHERE vehcile_type = 'B HVZ - "HVZ-D 2. Klasse"';
+
 SELECT * FROM vehicles
