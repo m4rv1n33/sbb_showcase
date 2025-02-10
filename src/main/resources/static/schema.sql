@@ -50,7 +50,16 @@ SET image_url = CASE
     WHEN vehicle_type LIKE 'Re 450' THEN '/images/Re450.jpg'
     WHEN vehicle_type LIKE 'Re 460' THEN '/images/Re460.jpg'
     WHEN vehicle_type LIKE 'bpm ec ric' THEN '/images/ec_bpm_ric.jpg'
-  --  WHEN vehicle_type LIKE
+	WHEN vehicle_type LIKE 'Apm Pano RIC' THEN '/images/sbb_apm_pano.jpg'
+    WHEN vehicle_type LIKE 'Apm EC RIC' THEN '/images/sbb_apm_ec.jpg'
+    WHEN vehicle_type LIKE 'A IC2000' THEN '/images/a_ic2000.jpg'
+    WHEN vehicle_type LIKE 'AD IC2000' THEN '/images/ad_ic2000.jpg'
+    WHEN vehicle_type LIKE 'AS EWIV 200' THEN '/images/as_ewiv.jpg'
+    WHEN vehicle_type LIKE 'Bt EWIV' THEN '/images/bt_ewiv.jpg'
+    WHEN vehicle_type LIKE 'Bt IC2000' THEN '/images/bt_ic2000.jpg'
+    WHEN vehicle_type LIKE 'B IC2000' THEN '/images/b_ic2000.jpg'
+    WHEN vehicle_type LIKE 'B EWIV' THEN '/images/b_ewiv.jpg'
+    WHEN vehicle_type LIKE 'A EWIV' THEN '/images/a_ewiv.jpg'
     ELSE image_url
 END;
 
@@ -103,7 +112,7 @@ SET vehicle_type = 'SBB APM Pano - "Panoramawagen"' WHERE vehicle_type LIKE 'Apm
 UPDATE vehicles
 SET vehicle_type = 'SBB EC APM - "Reisezugwagen 1. Klasse"' WHERE vehicle_type LIKE 'Apm EC RIC';
 UPDATE vehicles
-SET vehicle_type = 'SBB AD IC2000 - "IC2000 Business Class"' WHERE vehicle_type LIKE 'AD IC2000';
+SET vehicle_type = 'SBB AD IC2000 - "IC2000 1. Klasse mit Gepäckabteil"' WHERE vehicle_type LIKE 'AD IC2000';
 UPDATE vehicles
 SET vehicle_type = 'SBB AS EW IV - "Speisewagen"' WHERE vehicle_type LIKE 'AS EWIV 200';
 UPDATE vehicles
@@ -133,6 +142,6 @@ SET passenger_seats = '556' WHERE vehicle_type = 'Re 420 - "Re 4/4 II" - HVZ-D';
 DELETE FROM vehicles WHERE vehicle_type = 'B EWI NPZ';
 DELETE FROM vehicles WHERE vehicle_type = 'B DPZ NDW - "DPZ 2. Klasse"';
 DELETE FROM vehicles WHERE vehicle_type = 'AB DPZplus - "DPZ gemischt 1/2. Klasse"';
-DELETE FROM vehicles WHERE vehcile_type = 'B HVZ - "HVZ-D 2. Klasse"';
+DELETE FROM vehicles WHERE vehicle_type = 'B HVZ - "HVZ-D 2. Klasse"';
 
 SELECT * FROM vehicles
