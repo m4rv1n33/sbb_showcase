@@ -6,10 +6,10 @@ import java.util.List;
 
 public interface vehicleRepository extends JpaRepository<vehicle, Long> {
 
-    // Alle Fahrzeuge eines bestimmten Typs abrufen
+    // callback function to find all vehicles of a certain type
     List<vehicle> findByVehicleType(String vehicleType);
 
-    // Anzahl der Fahrzeuge eines bestimmten Typs zählen
+    // number of vehicles of a certain type
     @Query("SELECT COUNT(v) FROM vehicle v WHERE v.vehicleType = :type")
     long countByVehicleType(@Param("type") String type);
 }

@@ -22,7 +22,7 @@ public class vehicleController {
         this.vehicleRepository = vehicleRepository;
     }
 
-    // Zeigt die Hauptseite mit der Fahrzeugtabelle
+    // Shows main page with vehicle types
     @GetMapping("/")
     public String showVehicleTypes(Model model) {
         List<String> vehicleTypes = vehicleRepository.findAll().stream()
@@ -33,7 +33,7 @@ public class vehicleController {
         return "index";
     }
 
-    // Zeigt die Detailseite mit Fahrzeugen eines Typs
+    // shows details of a vehicle type
     @GetMapping("/details")
     public String showVehicleDetails(@RequestParam("type") String type, Model model) {
         List<vehicle> vehicles = vehicleRepository.findByVehicleType(type);
@@ -47,7 +47,7 @@ public class vehicleController {
         int maxAllowedSpeed = vehicles.get(0).getMaxAllowedSpeed();
         long count = vehicleRepository.countByVehicleType(type);
 
-        // Werte an die HTML-Seite übergeben
+        // transfer data to the view
         model.addAttribute("type", type);
         model.addAttribute("imageUrl", imageUrl);
         model.addAttribute("passengerSeats", passengerSeats);

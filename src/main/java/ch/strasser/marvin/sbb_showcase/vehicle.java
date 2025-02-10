@@ -32,10 +32,8 @@ public class vehicle {
     @Column(name = "image_url")
     private String imageUrl;
 
-    // Standard-Konstruktor für JPA
     public vehicle() {}
 
-    // Konstruktor mit Parametern
     public vehicle(String vehicleType, String vehicleNumber, int passengerSeats, int maxAllowedSpeed, String type, String imageUrl) {
         this.vehicleType = vehicleType;
         this.vehicleNumber = vehicleNumber;
@@ -45,7 +43,6 @@ public class vehicle {
         this.imageUrl = imageUrl;
     }
 
-    // Getter und Setter
     public Long getId() {
         return id;
     }
