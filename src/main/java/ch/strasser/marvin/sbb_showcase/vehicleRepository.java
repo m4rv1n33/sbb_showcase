@@ -12,4 +12,6 @@ public interface vehicleRepository extends JpaRepository<vehicle, Long> {
     // number of vehicles of a certain type
     @Query("SELECT COUNT(v) FROM vehicle v WHERE v.vehicleType = :type")
     long countByVehicleType(@Param("type") String type);
+
+    String VehicleType(String vehicleType);
 }

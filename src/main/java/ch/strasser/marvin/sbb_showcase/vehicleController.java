@@ -42,17 +42,14 @@ public class vehicleController {
             return "redirect:/";
         }
 
-        String imageUrl = vehicles.get(0).getImageUrl();
-        int passengerSeats = vehicles.get(0).getPassengerSeats();
-        int maxAllowedSpeed = vehicles.get(0).getMaxAllowedSpeed();
-        long count = vehicleRepository.countByVehicleType(type);
-
-        // transfer data to the view
-        model.addAttribute("type", type);
-        model.addAttribute("imageUrl", imageUrl);
-        model.addAttribute("passengerSeats", passengerSeats);
-        model.addAttribute("maxAllowedSpeed", maxAllowedSpeed);
-        model.addAttribute("count", count);
+        vehicle vehicle = vehicles.get(0);
+        model.addAttribute("vehicleType", vehicle.getVehicleType());
+        model.addAttribute("imageUrl", vehicle.getImageUrl());
+        model.addAttribute("passengerSeats", vehicle.getPassengerSeats());
+        model.addAttribute("maxAllowedSpeed", vehicle.getMaxAllowedSpeed());
+        model.addAttribute("lengthOverBuffer", vehicle.getLengthOverBuffer());
+        model.addAttribute("type", vehicle.getType());
+        model.addAttribute("count", vehicleRepository.countByVehicleType(type));
 
         return "details";
     }

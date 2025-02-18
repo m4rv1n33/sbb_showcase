@@ -29,17 +29,21 @@ public class vehicle {
     @Column(name = "type")
     private String type;
 
+    @Column(name = "length_over_buffer")
+    private Double lengthOverBuffer;
+
     @Column(name = "image_url")
     private String imageUrl;
 
     public vehicle() {}
 
-    public vehicle(String vehicleType, String vehicleNumber, int passengerSeats, int maxAllowedSpeed, String type, String imageUrl) {
+    public vehicle(String vehicleType, String vehicleNumber, int passengerSeats, int maxAllowedSpeed, String type, Double lengthOverBuffer, String imageUrl) {
         this.vehicleType = vehicleType;
         this.vehicleNumber = vehicleNumber;
         this.passengerSeats = passengerSeats;
         this.maxAllowedSpeed = maxAllowedSpeed;
         this.type = type;
+        this.lengthOverBuffer = lengthOverBuffer;
         this.imageUrl = imageUrl;
     }
 
@@ -91,6 +95,14 @@ public class vehicle {
         this.type = type;
     }
 
+    public Double getLengthOverBuffer() {
+        return lengthOverBuffer;
+    }
+
+    public void setLengthOverBuffer(Double lengthOverBuffer) {
+        this.lengthOverBuffer = lengthOverBuffer;
+    }
+
     public String getImageUrl() {
         return imageUrl;
     }
@@ -108,8 +120,8 @@ public class vehicle {
                 ", passengerSeats=" + passengerSeats +
                 ", maxAllowedSpeed=" + maxAllowedSpeed +
                 ", type='" + type + '\'' +
+                ", lengthOverBuffer=" + lengthOverBuffer +
                 ", imageUrl='" + imageUrl + '\'' +
                 '}';
     }
 }
-
