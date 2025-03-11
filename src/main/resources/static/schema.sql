@@ -237,3 +237,9 @@ DELETE FROM vehicles WHERE vehicle_type = 'AB DPZplus - "DPZ gemischt 1/2. Klass
 DELETE FROM vehicles WHERE vehicle_type = 'B HVZ - "HVZ-D 2. Klasse"';
 
 SELECT * FROM vehicles
+ORDER BY 
+    CASE 
+        WHEN vehicle_type LIKE 'R%' THEN 1 
+        ELSE 2 
+    END, 
+    vehicle_type;
