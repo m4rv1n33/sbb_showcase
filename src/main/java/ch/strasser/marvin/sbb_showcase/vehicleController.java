@@ -1,14 +1,10 @@
-package ch.strasser.marvin.sbb_showcase;/*
-Marvin Strasser
-Project_Name
-Version 1.0
-DATE
-*/
+package ch.strasser.marvin.sbb_showcase;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,21 +18,25 @@ public class vehicleController {
         this.vehicleRepository = vehicleRepository;
     }
 
-    // Shows main page with vehicle types
+    // Shows main page with vehicle types, sorted with "R" types first
     @GetMapping("/")
     public String showVehicleTypes(Model model) {
-        List<String> vehicleTypes = vehicleRepository.findAll().stream()
+        // First, find vehicles that start with 'R', then the rest
+        List<String> vehicleTypes = vehicleRepository.findAll(Sort.by(Sort.Order.asc("vehicleType")))
+                .stream()
                 .map(vehicle::getVehicleType)
                 .distinct()
                 .collect(Collectors.toList());
+
         model.addAttribute("vehicleTypes", vehicleTypes);
         return "index";
     }
 
-    // shows details of a vehicle type
+    // Shows details of a vehicle type
     @GetMapping("/details")
     public String showVehicleDetails(@RequestParam("type") String type, Model model) {
-        List<vehicle> vehicles = vehicleRepository.findByVehicleType(type);
+        // Get vehicles with a specific type
+        List<vehicle> vehicles = vehicleRepository.findByVehicleType(type, Sort.by(Sort.Order.asc("vehicleType")));
 
         if (vehicles.isEmpty()) {
             return "redirect:/";
