@@ -1,11 +1,15 @@
 package ch.strasser.marvin.sbb_showcase;
-
+/*
+Marvin Strasser
+SBB Showcase
+Version 1.0
+25.03.2025
+*/
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.data.domain.Sort;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,11 +22,14 @@ public class vehicleController {
         this.vehicleRepository = vehicleRepository;
     }
 
-    // Shows main page with vehicle types, sorted with "R" types first
+    // Shows main page with vehicle types, sorted in a way that displays vehicles in order of:
+    // 1. Electrical Locomotives
+    // 2. Electrical Multiple Units
+    // 3. Passenger Carriages
     @GetMapping("/")
     public String showVehicleTypes(Model model) {
-        // First, find vehicles that start with 'R', then the rest
-        List<String> vehicleTypes = vehicleRepository.findAll(Sort.by(Sort.Order.asc("vehicleType")))
+        // Find vehicles that start with R
+        List<String> vehicleTypes = vehicleRepository.findAll(Sort.by(Sort.Order.desc("vehicleType")))
                 .stream()
                 .map(vehicle::getVehicleType)
                 .distinct()

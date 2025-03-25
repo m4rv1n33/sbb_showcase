@@ -1,8 +1,9 @@
-package ch.strasser.marvin.sbb_showcase;/*
+package ch.strasser.marvin.sbb_showcase;
+/*
 Marvin Strasser
-Project_Name
+SBB Showcase
 Version 1.0
-DATE
+25.03.2025
 */
 import jakarta.persistence.*;
 

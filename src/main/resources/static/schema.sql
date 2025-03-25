@@ -70,37 +70,38 @@ END;
 
 UPDATE vehicles
 SET vehicle_type = CASE 
-	-- FLIRT & Regionalzüge
+	-- FLIRT and Regional Trains
     WHEN vehicle_type LIKE 'RABe 524 TILO 6' THEN 'RABe 524 - "Flirt" TILO 6-Teilig'
     WHEN vehicle_type LIKE 'RABe 524 TILO 4' THEN 'RABe 524 - "Flirt" TILO 4-Teilig'
 	WHEN vehicle_type LIKE 'RABe 523%' THEN 'RABe 523 - "Flirt 3"'
     WHEN vehicle_type LIKE 'RABe 522%' THEN 'RABe 522 - "Flirt France"'
     WHEN vehicle_type LIKE 'RABe 521%' THEN 'RABe 521 - "Flirt"'
     WHEN vehicle_type LIKE 'RABe 520' THEN 'RABe 520 - "GTW"'
-    WHEN vehicle_type LIKE 'RABe 514' THEN 'RABe 514 - "DTZ"'
     
-	-- Doppelstocktriebzüge
+	-- Double Decker EMUs
+    WHEN vehicle_type LIKE 'RABe 514' THEN 'RABe 514 - "DTZ"'
     WHEN vehicle_type LIKE 'RABe 511 4' THEN 'RABe 511 - "KISS" 4-Teilig'
     WHEN vehicle_type LIKE 'RABe 511 6' THEN 'RABe 511 - "KISS" 6-Teilig'
     WHEN vehicle_type LIKE 'RABe 502 IR100' THEN 'RABe 502 - "FV-Dosto" 4-Teilig'
     WHEN vehicle_type LIKE 'RABe 502 IR200' THEN 'RABe 502 - "FV-Dosto" 8-Teilig'
     WHEN vehicle_type LIKE 'RABDe 502 IC200' THEN 'RABDe 502 - "FV-Dosto" 8-Teilig mit Gepäckabteil'
     
-    -- Hochgeschwindigkeits- und Fernverkehrszüge
+    -- InterCity and EuroCity high-speed trains
     WHEN vehicle_type LIKE 'RABDe 500 ICN' THEN 'RABDe 500 - "ICN"'
     WHEN vehicle_type LIKE 'RABe 503' THEN 'RABe 503 - "Astoro"'
      WHEN vehicle_type LIKE 'RABe 501' THEN 'RABe 501 - "Giruno"'
     
-    -- Lokomotiven
+    -- Locomotives
+    WHEN LOWER(vehicle_type) LIKE 're 460' THEN 'Re 460 - "Lok 2000"'
     WHEN LOWER(vehicle_type) LIKE 're 450' THEN 'Re 450 - "DPZ"'
     WHEN LOWER(vehicle_type) LIKE 're 420' THEN 'Re 420 - "Re 4/4 II" - HVZ-D'
     
-    -- Reisezugwagen
-    WHEN vehicle_type LIKE 'Bpm EC RIC' THEN 'SBB EC BPM - "Reisezugwagen 2. Klasse"'
-    WHEN vehicle_type LIKE 'Apm Pano RIC' THEN 'SBB APM Pano - "Panoramawagen"'
-    WHEN vehicle_type LIKE 'Apm EC RIC' THEN 'SBB EC APM - "Reisezugwagen 1. Klasse"'
-    WHEN vehicle_type LIKE 'AD IC2000' THEN 'SBB AD IC2000 - "IC2000 1. Klasse mit Gepäckabteil"'
-    WHEN vehicle_type LIKE 'AS EWIV 200' THEN 'SBB AS EW IV - "Speisewagen"'
+    -- Passenger Carriages
+    WHEN vehicle_type LIKE 'Bpm EC RIC' THEN 'EC BPM - "Reisezugwagen 2. Klasse"'
+    WHEN vehicle_type LIKE 'Apm Pano RIC' THEN 'APM Pano - "Panoramawagen"'
+    WHEN vehicle_type LIKE 'Apm EC RIC' THEN 'EC APM - "Reisezugwagen 1. Klasse"'
+    WHEN vehicle_type LIKE 'AD IC2000' THEN 'AD IC2000 - "IC2000 1. Klasse mit Gepäckabteil"'
+    WHEN vehicle_type LIKE 'AS EWIV 200' THEN 'AS EW IV - "Speisewagen"'
     WHEN vehicle_type LIKE 'AB DPZplus' THEN 'AB DPZplus - "DPZ gemischt 1/2. Klasse"'
     WHEN vehicle_type LIKE 'Bt EWIV' THEN 'Bt EW IV - "EW IV Steuerwagen"'
     WHEN vehicle_type LIKE 'Bt IC2000' THEN 'Bt IC2000 - "IC2000 Steuerwagen"'
@@ -110,7 +111,6 @@ SET vehicle_type = CASE
     WHEN vehicle_type LIKE 'B EWIV' THEN 'B EW IV - "EW IV 2. Klasse"'
     WHEN vehicle_type LIKE 'A IC2000' THEN 'A IC2000 - "IC2000 1. Klasse"'
     WHEN vehicle_type LIKE 'A EWIV' THEN 'A EW IV - "EW IV 1. Klasse"'
-    WHEN vehicle_type LIKE 'Re 460' THEN 'Re 460 - "Lok 2000"'
     ELSE vehicle_type
 END;
 
