@@ -124,7 +124,7 @@ SET passenger_seats =
 UPDATE vehicles
 SET length_over_buffer = 
     CASE
-        -- Doppelstocktriebzüge
+        -- Double Decker EMUs
         WHEN vehicle_type = 'RABe 514 - "DTZ"' THEN 100.00
         WHEN vehicle_type = 'RABe 511 - "KISS" 4-Teilig' THEN 100.36
         WHEN vehicle_type = 'RABe 511 - "KISS" 6-Teilig' THEN 150.00
@@ -132,12 +132,12 @@ SET length_over_buffer =
         WHEN vehicle_type = 'RABe 502 - "FV-Dosto" 8-Teilig' THEN 200.00
         WHEN vehicle_type = 'RABDe 502 - "FV-Dosto" 8-Teilig mit Gepäckabteil' THEN 200.00
         
-        -- Hochgeschwindigkeits- und Fernverkehrszüge
+        -- InterCity and EuroCity high-speed trains
         WHEN vehicle_type = 'RABe 501 - "Giruno"' THEN 202.00
         WHEN vehicle_type = 'RABDe 500 - "ICN"' THEN 188.70
         WHEN vehicle_type = 'RABe 503 - "Astoro"' THEN 187.40
         
-        -- FLIRT & Regionalzüge
+        -- FLIRT and Regional Trains
         WHEN vehicle_type = 'RABe 524 - "Flirt" TILO 4-Teilig' THEN 74.00
         WHEN vehicle_type = 'RABe 524 - "Flirt" TILO 6-Teilig' THEN 107.00
         WHEN vehicle_type = 'RABe 523 - "Flirt 3"' THEN 74.00
@@ -145,20 +145,20 @@ SET length_over_buffer =
         WHEN vehicle_type = 'RABe 522 - "Flirt France"' THEN 74.00
         WHEN vehicle_type = 'RABe 520 - "GTW"' THEN 52.50
         
-        -- Lokomotiven
+        -- Locomotives
         WHEN vehicle_type = 'Re 450 - "DPZ"' THEN 75.10
         WHEN vehicle_type = 'Re 460 - "Lok 2000"' THEN 18.50
         WHEN vehicle_type = 'Re 420 - "Re 4/4 II" - HVZ-D' THEN 15.40
         
-        -- Reisezugwagen
+        -- Passenger Carriages
         WHEN vehicle_type = 'Bt IC2000 - "IC2000 Steuerwagen"' THEN 27.50
         WHEN vehicle_type = 'B IC2000 - "IC2000 2. Klasse"' THEN 26.80
         WHEN vehicle_type = 'A IC2000 - "IC2000 1. Klasse"' THEN 26.80
-        WHEN vehicle_type = 'SBB EC BPM - "Reisezugwagen 2. Klasse"' THEN 26.40
-        WHEN vehicle_type = 'SBB EC APM - "Reisezugwagen 1. Klasse"' THEN 26.40
-        WHEN vehicle_type = 'SBB APM Pano - "Panoramawagen"' THEN 26.40
-        WHEN vehicle_type = 'SBB AD IC2000 - "IC2000 1. Klasse mit Gepäckabteil"' THEN 27.50
-        WHEN vehicle_type = 'SBB AS EW IV - "Speisewagen"' THEN 26.40
+        WHEN vehicle_type = 'EC BPM - "Reisezugwagen 2. Klasse"' THEN 26.40
+        WHEN vehicle_type = 'EC APM - "Reisezugwagen 1. Klasse"' THEN 26.40
+        WHEN vehicle_type = 'APM Pano - "Panoramawagen"' THEN 26.40
+        WHEN vehicle_type = 'AD IC2000 - "IC2000 1. Klasse mit Gepäckabteil"' THEN 27.50
+        WHEN vehicle_type = 'AS EW IV - "Speisewagen"' THEN 26.40
         WHEN vehicle_type = 'AB DPZplus - "DPZ gemischt 1/2. Klasse"' THEN 26.80
         WHEN vehicle_type = 'Bt EW IV - "EW IV Steuerwagen"' THEN 26.40
         WHEN vehicle_type = 'B DPZ NDW - "DPZ 2. Klasse"' THEN 26.80
