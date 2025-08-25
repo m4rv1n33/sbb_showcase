@@ -23,7 +23,7 @@ public class vehicleController {
     }
 
     // Shows main page with vehicle types, sorted in a way that displays vehicles in order of:
-    // 1. Electrical Locomotives
+    // 1. Electrical Locomotives (Locomotives are considered train sets such as DPZ or HVZ and not listed as standalone engines)
     // 2. Electrical Multiple Units
     // 3. Passenger Carriages
     @GetMapping("/")
