@@ -22,20 +22,44 @@ public class vehicleController {
         this.vehicleRepository = vehicleRepository;
     }
 
-    // Shows main page with vehicle types, sorted in a way that displays vehicles in order of:
-    // 1. Electrical Locomotives (Locomotives are considered train sets such as DPZ or HVZ and not listed as standalone engines)
-    // 2. Electrical Multiple Units
-    // 3. Passenger Carriages
     @GetMapping("/")
-    public String showVehicleTypes(Model model) {
-        // Find vehicles that start with R
-        List<String> vehicleTypes = vehicleRepository.findAll(Sort.by(Sort.Order.desc("vehicleType")))
-                .stream()
+    public String showVehicleTypes(
+            @RequestParam(value = "search", required = false) String search,
+            Model model) {
+
+        // load all vehicles
+        List<vehicle> allVehicles = vehicleRepository.findAll(Sort.by("vehicleType"));
+
+        if (search != null && !search.isEmpty()) {
+            allVehicles = allVehicles.stream()
+                    .filter(v -> v.getVehicleType().toLowerCase().contains(search.toLowerCase()))
+                    .collect(Collectors.toList());
+        }
+
+        // filter categories
+        List<String> lokomotiven = allVehicles.stream()
+                .filter(v -> "Lokomotive".equals(v.getType()))
                 .map(vehicle::getVehicleType)
                 .distinct()
                 .collect(Collectors.toList());
 
-        model.addAttribute("vehicleTypes", vehicleTypes);
+        List<String> triebzuege = allVehicles.stream()
+                .filter(v -> "Triebzug".equals(v.getType()))
+                .map(vehicle::getVehicleType)
+                .distinct()
+                .collect(Collectors.toList());
+
+        List<String> wagen = allVehicles.stream()
+                .filter(v -> "Wagen".equals(v.getType()))
+                .map(vehicle::getVehicleType)
+                .distinct()
+                .collect(Collectors.toList());
+
+        model.addAttribute("lokomotiven", lokomotiven);
+        model.addAttribute("triebzuege", triebzuege);
+        model.addAttribute("wagen", wagen);
+        model.addAttribute("search", search);
+
         return "index";
     }
 

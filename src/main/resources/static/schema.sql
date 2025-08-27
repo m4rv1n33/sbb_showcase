@@ -31,7 +31,7 @@ SET type = 'Lokomotive' WHERE passenger_seats = 0;
 UPDATE vehicles
 SET type = 'Wagen' WHERE vehicle_type NOT LIKE 'R%';
 UPDATE vehicles 
-SET type = 'Triebfahrzeug' WHERE vehicle_type LIKE 'RA%';
+SET type = 'Triebzug' WHERE vehicle_type LIKE 'RA%';
 UPDATE vehicles
 SET vehicle_type = 'B EWIV' WHERE vehicle_type LIKE 'B EWIV%';
 UPDATE vehicles

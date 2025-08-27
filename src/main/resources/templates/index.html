@@ -46,29 +46,83 @@
     </div>
   </header>
 
-  <!-- Main Content -->
   <main class="container mx-auto px-6">
-    <div class="bg-white rounded-xl shadow-sbb overflow-hidden">
-      <table class="w-full">
-        <thead>
-          <tr class="bg-sbb-red text-white">
-            <th class="p-4 text-left text-lg font-semibold">Fahrzeugtyp</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr th:each="type : ${vehicleTypes}" 
-              class="border-b border-sbb-light hover:bg-sbb-light transition duration-200">
-            <td class="p-4">
-              <a th:href="@{/details(type=${type})}" 
-                 class="text-sbb-dark font-medium hover:text-sbb-red transition-colors duration-200">
-                <span th:text="${type}"></span>
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+
+    <!-- search field -->
+    <input type="text" id="searchInput" placeholder="Fahrzeug suchen..."
+           class="w-full p-3 mb-6 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-sbb-red">
+
+    <!-- Locos -->
+    <div class="bg-white rounded-xl shadow-sbb mb-8 overflow-hidden category" data-category="Lokomotive">
+      <h2 class="bg-sbb-red text-white p-4 text-xl font-semibold">Lokomotiven</h2>
+      <ul id="lokomotivenList">
+        <li th:each="type : ${lokomotiven}"
+            class="p-4 border-b border-sbb-light hover:bg-sbb-light transition">
+          <a th:href="@{/details(type=${type})}"
+             class="text-sbb-dark font-medium hover:text-sbb-red">
+            <span th:text="${type}"></span>
+          </a>
+        </li>
+      </ul>
     </div>
+
+    <!-- Triebzüge -->
+    <div class="bg-white rounded-xl shadow-sbb mb-8 overflow-hidden category" data-category="Triebzug">
+      <h2 class="bg-sbb-red text-white p-4 text-xl font-semibold">Triebzüge</h2>
+      <ul id="triebzuegeList">
+        <li th:each="type : ${triebzuege}"
+            class="p-4 border-b border-sbb-light hover:bg-sbb-light transition">
+          <a th:href="@{/details(type=${type})}"
+             class="text-sbb-dark font-medium hover:text-sbb-red">
+            <span th:text="${type}"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Wagons -->
+    <div class="bg-white rounded-xl shadow-sbb overflow-hidden category" data-category="Wagen">
+      <h2 class="bg-sbb-red text-white p-4 text-xl font-semibold">Wagen</h2>
+      <ul id="wagenList">
+        <li th:each="type : ${wagen}"
+            class="p-4 border-b border-sbb-light hover:bg-sbb-light transition">
+          <a th:href="@{/details(type=${type})}"
+             class="text-sbb-dark font-medium hover:text-sbb-red">
+            <span th:text="${type}"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
   </main>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+
+    searchInput.addEventListener('input', () => {
+      const filter = searchInput.value.toLowerCase();
+      const categories = document.querySelectorAll('.category');
+
+      categories.forEach(category => {
+        const items = category.querySelectorAll('li');
+        let visibleCount = 0;
+
+        items.forEach(item => {
+          const text = item.textContent.toLowerCase();
+          if (text.includes(filter)) {
+            item.style.display = '';
+            visibleCount++;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        // Make category invisible if no vehicle matches search
+        category.style.display = visibleCount > 0 ? '' : 'none';
+      });
+    });
+  </script>
+
 
   <!-- Footer -->
   <footer class="mt-16 text-center text-gray-500 text-sm py-6 bg-sbb-light border-t border-gray-300">
