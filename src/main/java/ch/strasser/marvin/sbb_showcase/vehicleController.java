@@ -3,7 +3,7 @@ package ch.strasser.marvin.sbb_showcase;
 Marvin Strasser
 SBB Showcase
 Version 1.0
-25.03.2025
+01.09.2025
 */
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
