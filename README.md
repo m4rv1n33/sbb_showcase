@@ -7,14 +7,15 @@ It provides a visual and structured way to explore SBB’s rolling stock, from h
 
 ## ✨ Features
 - Visual overview of SBB passenger trains  
-- Train details such as type, service role, and classification  
+- Train details such as type, service speed, and classification  
 - Organized gallery-style presentation  
 - Easy to extend with new models  
 
 ---
 
 ## 🛠️ Technologies
-- **Java** – application logic  
+- **Java** – application logic
+- **SQL** - Database 
 - **HTML / CSS** – frontend design  
 - **JavaScript** for interactivity  
 
@@ -35,6 +36,7 @@ For official information about the fleet:
 ![Screenshot1](src/main/resources/static/images/ss1.jpg)
 ![Screenshot2](src/main/resources/static/images/ss2.jpg)
 ![Screenshot3](src/main/resources/static/images/ss3.jpg)
+![Screenshot4](src/main/resources/static/images/ss4.jpg)
 ---
 
 ## 👤 Author
