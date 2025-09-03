@@ -29,6 +29,7 @@ From the sleek **Giruno** that connects Switzerland to Italy at high speed, to t
 For official information about the fleet:  
 - [SBB – Our Trains](https://www.sbb.ch/en/travel-information/services-on-train/our-trains.html)  
 - [SBB Rolling Stock Statistics](https://reporting.sbb.ch/en/rolling-stock)
+- [SBB Rolling Stock Data Source](https://data.sbb.ch/explore/dataset/rollmaterial-matching/information/)
 
 ---
 
@@ -42,3 +43,11 @@ For official information about the fleet:
 ## 👤 Author
 Created by [m4rv1n33](https://github.com/m4rv1n33)  
 A project combining programming with a lifelong enthusiasm for Swiss trains 🚆
+
+
+
+
+> *NOTICE: The Database was last updated in July 2018.  
+> New Vehicles like the FLIRT EVO will **not** show.  
+> Some vehicles have been revised, like the IC2000 which have turned into IC2020, this will also **not** show.
+> However, pictures used may contain revised versions of those vehicles.*
