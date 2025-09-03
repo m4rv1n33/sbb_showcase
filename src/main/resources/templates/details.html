@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fahrzeugdetails</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Clan+OT:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Clan OT', 'Arial', 'sans-serif'],
+            sans: ['Open Sans', 'Arial', 'sans-serif'],
           },
           colors: {
             sbb: {
@@ -36,31 +36,46 @@
         border-radius: 12px;
       }
     }
+
+    /* Custom styles for image and layout */
+    .vehicle-image {
+      max-height: 40vh;
+      width: auto;
+      object-fit: contain;
+    }
+
+    @media (max-width: 768px) {
+      .details-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
   </style>
 </head>
-<body class="bg-sbb-light text-sbb-dark font-sans">
+<body class="bg-sbb-light text-sbb-dark font-sans min-h-screen flex flex-col">
+<!-- Header -->
+<header class="bg-sbb-red text-white py-6 rounded-sbb shadow-sbb">
+  <div class="container mx-auto px-6 text-center">
+    <h1 class="text-3xl font-bold mb-2 tracking-tight">Fahrzeugdetails</h1>
+    <p class="text-lg opacity-90"><span th:text="${vehicleType}"></span></p>
+  </div>
+</header>
 
-  <!-- Header -->
-  <header class="bg-sbb-red text-white py-10 rounded-sbb shadow-sbb mb-10">
-    <div class="container mx-auto px-6 text-center">
-      <h1 class="text-4xl font-bold mb-2 tracking-tight">Fahrzeugdetails</h1>
-      <p class="text-lg opacity-90"><span th:text="${vehicleType}"></span></p>
-    </div>
-  </header>
 
-  <!-- Main Content -->
-  <main class="container mx-auto px-6">
-    <!-- Breadcrumb / Back -->
-    <a href="/" class="inline-flex items-center gap-2 bg-sbb-red text-white font-medium py-2 px-5 rounded-lg mb-6 shadow-sbb hover:bg-red-800 transition">
-      ← Zurück
-    </a>
+<main class="container mx-auto px-6 py-6 flex-grow">
+  <a href="/" class="inline-flex items-center gap-2 bg-sbb-red text-white font-medium py-2 px-5 rounded-lg mb-6 shadow-sbb hover:bg-red-800 transition">
+    ← Zurück
+  </a>
 
-    <!-- Vehicle Card -->
-    <div class="bg-white card-rounded shadow-sbb overflow-hidden">
-      <img th:src="${imageUrl}" class="w-full h-auto object-cover" alt="Fahrzeugbild">
-      <div class="p-6">
+  <!-- Vehicle Card -->
+  <div class="bg-white card-rounded shadow-sbb overflow-hidden">
+    <div class="details-grid grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+      <div class="flex justify-center items-start">
+        <img th:src="${imageUrl}" class="vehicle-image" alt="Fahrzeugbild">
+      </div>
+
+      <div class="flex flex-col justify-center">
         <h2 class="text-3xl font-bold text-black mb-6" th:text="${vehicleType}"></h2>
-        <div class="grid gap-3 sm:grid-cols-2">
+        <div class="grid gap-4">
           <p><strong class="text-black">Anzahl Fahrzeuge:</strong> <span th:text="${count}"></span></p>
           <p><strong class="text-black">Sitzplätze:</strong> <span th:text="${passengerSeats}"></span></p>
           <p><strong class="text-black">Max. Geschwindigkeit:</strong> <span th:text="${maxAllowedSpeed} + ' km/h'"></span></p>
@@ -69,12 +84,12 @@
         </div>
       </div>
     </div>
-  </main>
+  </div>
+</main>
 
- <footer class="mt-16 text-center text-gray-500 text-sm py-6 bg-sbb-light border-t border-gray-300">
-    <p>Data & images &copy; SBB CFF FFS</p>
-    <p>&copy; <a href="https://github.com/m4rv1n33" target="_blank" class="hover:text-sbb-red">m4rv1n33</a> · Not affiliated with SBB CFF FFS</p>
-  </footer>
-
+<footer class="mt-6 text-center text-gray-500 text-sm py-4 bg-sbb-light border-t border-gray-300">
+  <p>Data & images &copy; SBB CFF FFS</p>
+  <p>&copy; <a href="https://github.com/m4rv1n33" target="_blank" class="hover:text-sbb-red">m4rv1n33</a> · Not affiliated with SBB CFF FFS</p>
+</footer>
 </body>
 </html>
