@@ -47,7 +47,7 @@ A project combining programming with a lifelong enthusiasm for Swiss trains 🚆
 
 
 
-> *NOTICE: The Database was last updated in July 2018.  
+> *NOTICE: The Database source was last updated in July 2018.  
 > New Vehicles like the FLIRT EVO will **not** show.  
 > Some vehicles have been revised, like the IC2000 which have turned into IC2020, this will also **not** show.
 > However, pictures used may contain revised versions of those vehicles.*
