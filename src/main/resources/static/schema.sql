@@ -146,7 +146,7 @@ SET length_over_buffer =
         WHEN vehicle_type = 'RABe 520 - "GTW"' THEN 52.50
         
         -- Locomotives
-        WHEN vehicle_type = 'Re 450 - "DPZ"' THEN 75.10
+        WHEN vehicle_type = 'Re 450 - "DPZ"' THEN 18.40
         WHEN vehicle_type = 'Re 460 - "Lok 2000"' THEN 18.50
         WHEN vehicle_type = 'Re 420 - "Re 4/4 II" - HVZ-D' THEN 15.40
         
