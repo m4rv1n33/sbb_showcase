@@ -29,7 +29,7 @@ From the sleek **Giruno** that connects Switzerland to Italy at high speed, to t
 For official information about the fleet:  
 - [SBB – Our Trains](https://www.sbb.ch/en/travel-information/services-on-train/our-trains.html)  
 - [SBB Rolling Stock Statistics](https://reporting.sbb.ch/en/rolling-stock)
-- [SBB Rolling Stock Data Source](https://data.sbb.ch/explore/dataset/rollmaterial-matching/information/)
+- [SBB Rolling Stock Data Source](https://data.sbb.ch/explore/dataset/rollmaterial/information/)
 
 ---
 
