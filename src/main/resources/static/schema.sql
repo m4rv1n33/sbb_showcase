@@ -4,7 +4,7 @@ USE sbb_showcase;
 
 CREATE TABLE vehicles(
 id INT AUTO_INCREMENT PRIMARY KEY,
-vehicle_type VARCHAR(100) NOT NULL,
+vehicle_type VARCHAR(2000) NOT NULL,
 vehicle_number VARCHAR(25),
 passenger_seats INT,
 max_allowed_speed INT,
@@ -19,12 +19,18 @@ image_url VARCHAR(255)
 
 LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/rollmaterial_sbb.csv'
 INTO TABLE vehicles
-FIELDS TERMINATED BY ','
-LINES TERMINATED BY 0x0d0a
+FIELDS TERMINATED BY ',' 
+OPTIONALLY ENCLOSED BY '"' 
+ESCAPED BY '"'
+LINES TERMINATED BY '\r\n'
 (@vehicle_type,@vehicle_number,@seats,@max_allowed_speed)
-SET vehicle_type = @vehicle_type,vehicle_number = @vehicle_number,passenger_seats = @seats,max_allowed_speed = @max_allowed_speed;
+SET vehicle_type = @vehicle_type,
+    vehicle_number = @vehicle_number,
+    passenger_seats = @seats,
+    max_allowed_speed = @max_allowed_speed;
 
-UPDATE vehicles
+
+UPDATE vehicles	
 SET vehicle_type = 'RABe 511 6' WHERE vehicle_type LIKE '%RABe 511 6%';
 UPDATE vehicles
 SET type = 'Lokomotive' WHERE passenger_seats = 0;
@@ -65,6 +71,9 @@ SET image_url = CASE
     WHEN vehicle_type LIKE 'B IC2000' THEN '/images/b_ic2000.jpg'
     WHEN vehicle_type LIKE 'B EWIV' THEN '/images/b_ewiv.jpg'
     WHEN vehicle_type LIKE 'A EWIV' THEN '/images/a_ewiv.jpg'
+    WHEN vehicle_type LIKE 'RABe 531 - "Flirt EVO"  Thurbo (CH/AT/DE)' THEN '/images/RABe531_D.jpg'
+	WHEN vehicle_type LIKE 'RABe 532 - "Flirt EVO" (CH/FR)' THEN '/images/RABe532_F.jpg'
+    WHEN vehicle_type LIKE 'RABe 533 - "Flirt EVO"' THEN '/images/RABe533.jpg'
     ELSE image_url
 END;
 
@@ -131,7 +140,10 @@ SET length_over_buffer =
         WHEN vehicle_type = 'RABe 502 - "FV-Dosto" 4-Teilig' THEN 100.00
         WHEN vehicle_type = 'RABe 502 - "FV-Dosto" 8-Teilig' THEN 200.00
         WHEN vehicle_type = 'RABDe 502 - "FV-Dosto" 8-Teilig mit Gepäckabteil' THEN 200.00
-        
+        WHEN vehicle_type = 'RABe 531 - "Flirt EVO"  Thurbo (CH/AT/DE)' THEN 73.50
+        WHEN vehicle_type = 'RABe 532 - "Flirt EVO" (CH/FR)' THEN 73.50
+        WHEN vehicle_type = 'RABe 533 - "Flirt EVO"' THEN 73.50
+	        
         -- InterCity and EuroCity high-speed trains
         WHEN vehicle_type = 'RABe 501 - "Giruno"' THEN 202.00
         WHEN vehicle_type = 'RABDe 500 - "ICN"' THEN 188.70
