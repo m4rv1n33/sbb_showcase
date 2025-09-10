@@ -46,11 +46,10 @@ A project combining programming with a lifelong enthusiasm for Swiss trains 🚆
 
 
 
-
-> NOTICE: The Database source was last updated in March 2022.  
-> New Vehicles like the FLIRT EVO will **not** show.
-> 
-> The new RABe 512 has been **manually** added, information may not be accurate.
+> NOTICE:
+> DB Source was last updated 09/2025
 > 
 > Some vehicles have been revised, like the IC2000 which have turned into IC2020, this will also **not** show.
 > However, pictures used may contain revised versions of those vehicles.
+> 
+> The information about the trains in this project is provided 'as is,' without any guarantee of accuracy.
