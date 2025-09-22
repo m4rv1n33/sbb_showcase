@@ -49,7 +49,4 @@ A project combining programming with a lifelong enthusiasm for Swiss trains 🚆
 > NOTICE:
 > DB Source was last updated 09/2025
 > 
-> Some vehicles have been revised, like the IC2000 which have turned into IC2020, this will **not** show.
-> However, pictures used may contain revised versions of those vehicles.
-> 
 > The information about the trains in this project is provided 'as is,' without any guarantee of accuracy.
