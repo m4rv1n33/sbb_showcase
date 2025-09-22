@@ -3,7 +3,7 @@ package ch.strasser.marvin.sbb_showcase;
 Marvin Strasser
 SBB Showcase
 Version 1.0
-01.09.2025
+22.09.2025
 */
 import jakarta.persistence.*;
 
