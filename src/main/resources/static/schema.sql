@@ -126,7 +126,7 @@ END;
 UPDATE vehicles
 SET passenger_seats = 
     CASE 
-        WHEN vehicle_type = 'Re 450 - "DPZ"' THEN 387
+        WHEN vehicle_type = 'Re 450 - "DPZ"' THEN 345
         WHEN vehicle_type = 'Re 420 - "Re 4/4 II" - HVZ-D' THEN 556
         ELSE passenger_seats
     END;
